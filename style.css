@@ -11,12 +11,14 @@ button {
   height: 50px;
   border-radius: 15px;
   margin: 10px;
-  box-shadow: inset 0px -5px 0px rgb(72, 36, 107);
+  box-shadow: inset 0px -2px 0px rgb(161, 97, 224);
   position: absolute;
-  border-bottom: 1px solid rgb(233, 188, 40);
+  border-bottom: 7px solid rgb(72, 36, 107);
+
 }
 
 button:active{
-  box-shadow: inset 0px 0px 0px rgb(72, 36, 107);
-  margin-top: 13px;
+  border: none;
+  margin-top: 15px;
+  height: 45px;
 }
