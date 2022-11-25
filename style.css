@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+button {
+  border: none;
+  background-color: rebeccapurple;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: inset 0px -5px 0px rgb(72, 36, 107);
+  position: absolute;
+  border-bottom: 1px solid rgb(233, 188, 40);
+}
+
+button:active{
+  box-shadow: inset 0px 0px 0px rgb(72, 36, 107);
+  margin-top: 13px;
+}
