@@ -26,8 +26,8 @@ class Circle {
     ctx.closePath();
   }
   _move(x, y = 0) {
-    this.position[0] += x;
-    this.position[1] += y;
+    this.position[0] += this.dir[0];
+    this.position[1] += this.dir[1];
     if (this.position[0] >= canvas.width - this.radius) {
       this.dir[0] = -random(this.start_dir[0] / this.speed_divider, this.start_dir[0] * this.speed_multyplier);
     }
@@ -42,7 +42,7 @@ class Circle {
     }
   }
   set_dir(x, y = 0) {
-    this.start_dir = [x, y];
+    this.start_dir = [Math.abs(x), Math.abs(y)];
     this.dir = [x, y];
   }
   start() {
@@ -59,7 +59,7 @@ class Circle {
 
 let circles = [];
 let colors = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 1; i++) {
   circles.push(
     new Circle({
       color: `${getRandomColor()})`,
@@ -71,7 +71,7 @@ for (let i = 0; i < 10; i++) {
 
 function update() {
   for (c of circles) {
-    c.set_dir(random(1, 5), random(1, 5));
+    c.set_dir(random(-5, -5), random(-5, -5));
     c._create();
   }
   setInterval(() => {
@@ -91,20 +91,18 @@ function getRandomColor() {
 update();
 
 window.addEventListener('click', (ev) => {
-  if(ev.target.type == "button") return
+  if (ev.target.type == 'button') return;
   let c = new Circle({
     color: `${getRandomColor()})`,
     position: [ev.pageX, ev.pageY],
     radius: random(10, 50),
   });
-  c.set_dir(random(1, 5), random(1, 5));
+  c.set_dir(random(-5, 5), random(-5, 5));
   circles.push(c);
 });
 
-let clearButton = document.querySelector("#clear")
+let clearButton = document.querySelector('#clear');
 
-clearButton.addEventListener("click",()=>{
-  circles = []
-})
-
-
+clearButton.addEventListener('click', () => {
+  circles = [];
+});
